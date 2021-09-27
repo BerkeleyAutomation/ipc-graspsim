@@ -1,9 +1,9 @@
 ### Introduction
-Grasp simulator based on IPC/ipc (put link here), contains modifications from it.
+Grasp simulator based on IPC (https://ipc-sim.github.io/), contains modifications from it.
 
 1. unzip data.zip, will create `dexgrasp_data/` directory populated with mesh + json related data
-2. build using docker/build.sh
-3. run using docker/run.sh `obj_name` `grasp_ind`
+2. build using `docker/build.sh`
+3. run using `docker/run.sh <obj_name> <grasp_ind>`
 
 So, for example, (including setup) you should be able to simulate a cube grasp with:
 ```
@@ -11,13 +11,10 @@ unzip data.zip
 ./docker/build.sh
 ./docker/run.sh cube_3cm 0
 ```
-This will create grasp state files (.obj files including gripper + object) in `output/cube_3cm_0_(time)/`.
+This will create grasp state files (.obj files including gripper + object) in `output/cube_3cm_0_<time>/`.
 
 ### Visualization:
 The grasps can also be visualized at each timestep using any mesh visualizer, but it might be finicky to play through the various timesteps. 
-
-If you install IPC-GraspSim's dependencies and build this package locally, 
-you can use the --online flag on `run.sh` to  enable IPC's default visualization method.
 
 If you have blender, then you can
 1) use https://github.com/neverhood311/Stop-motion-OBJ to load in the object files in order 
