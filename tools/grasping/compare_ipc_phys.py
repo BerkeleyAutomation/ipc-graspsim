@@ -23,18 +23,18 @@ def phys_quality(obj_name):
 def check_collision(msh):
     col = trimesh.collision.CollisionManager()
     # 1. check that object is in contact with both tooltips
-    col.add_object('obj', msh[0]); col.add_object('1', msh[1])
+    col.add_object('obj', msh[0]); col.add_object('1', msh[2])
     min_dist = col.min_distance_internal()
     if min_dist > 1e-2:
         return 0
-    col.remove_object('1'); col.add_object('2', msh[2])
+    col.remove_object('1'); col.add_object('2', msh[4])
     min_dist = col.min_distance_internal()
     if min_dist > 1e-2:
         return 0
 
     # 2. check that the two tooltips are not touching
     col = trimesh.collision.CollisionManager()
-    col.add_object('1', msh[1]); col.add_object('2', msh[2])
+    col.add_object('1', msh[2]); col.add_object('2', msh[4])
     min_dist = col.min_distance_internal()
     if min_dist < 1e-2:
         return 0
