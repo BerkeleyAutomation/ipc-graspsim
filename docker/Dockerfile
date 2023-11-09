@@ -26,6 +26,7 @@ RUN apt-get update -y && \
 
 # Install all other python deps
 RUN git clone https://github.com/mmatl/pyopengl.git && python3 -m pip install --no-cache-dir ./pyopengl
+RUN python3 -m pip install "ruamel.yaml<0.18.0"
 RUN python3 -m pip install --no-cache-dir trimesh python-fcl autolab_core numpy pandas pyrender tqdm matplotlib
 
 RUN mkdir -p IPC_sim/build
